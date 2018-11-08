@@ -1,0 +1,40 @@
+{% set name = "smvs" %}
+{% set version = "master" %}
+{% set mve_version = "master" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  - fn: {{ name }}-{{ version }}.tar.gz
+    url: https://github.com/flanggut/smvs/archive/{{ version }}.tar.gz
+    sha256: 758a9efc8d4e8cbdcc56cd9c44453f60ad12ff92d7ca3af433b99954e4414b0b
+    folder: {{ name }}
+  - fn: mve-{{ mve_version }}.tar.gz
+    url: https://github.com/simonfuhrmann/mve/archive/{{ mve_version }}.tar.gz
+    sha256: deaa1bcf04817c602119236e9efdd06a762bc8b0c8bb477ddcec0401d803913a
+    folder: mve
+
+build:
+    number: 0
+
+requirements:
+  # build:
+    # - {{ compiler("c") }}
+    # - {{ compiler("cxx") }}
+  host:
+    - mve {{ mve }}
+
+test:
+  commands:
+    - test -f $PREFIX/bin/smvsrecon
+    - test -f $PREFIX/lib/libsmvs.a
+
+about:
+  home: https://github.com/flanggut/smvs
+  summary: Shading-aware Multi-view Stereo
+
+extra:
+  recipe-maintainers:
+    - v-turin
