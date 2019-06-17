@@ -1,6 +1,7 @@
 #!/bin/sh
 export CPPFLAGS="-I${PREFIX}/include"
 export LDFLAGS="$LDFLAGS -L${PREFIX}/lib"
+export CXXINTRINSICS="-msse2 -msse3 -msse4 -mpopcnt"
 
 ln -s $PREFIX/lib/libmve.a mve/libs/mve
 ln -s $PREFIX/lib/libmve_dmrecon.a mve/libs/dmrecon

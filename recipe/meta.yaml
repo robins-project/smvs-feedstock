@@ -1,6 +1,8 @@
 {% set name = "smvs" %}
 {% set version = "master" %}
+{% set commit = "7cf59084329d494068c67bd57bfeae5660584ad3" %}
 {% set mve_version = "master" %}
+{% set mve_commit = "55eb94f34f82694e0f25a7f235c25a06acc0bfae" %}
 
 package:
   name: {{ name }}
@@ -8,12 +10,12 @@ package:
 
 source:
   - fn: {{ name }}-{{ version }}.tar.gz
-    url: https://github.com/flanggut/smvs/archive/{{ version }}.tar.gz
-    sha256: 758a9efc8d4e8cbdcc56cd9c44453f60ad12ff92d7ca3af433b99954e4414b0b
+    url: https://github.com/flanggut/smvs/archive/{{ commit }}.tar.gz
+    sha256: 1236dd55b4c35dd43ff8943d01b5305d2369033d2f30ed938a2ce3310a7f81c4
     folder: {{ name }}
   - fn: mve-{{ mve_version }}.tar.gz
-    url: https://github.com/simonfuhrmann/mve/archive/{{ mve_version }}.tar.gz
-    sha256: deaa1bcf04817c602119236e9efdd06a762bc8b0c8bb477ddcec0401d803913a
+    url: https://github.com/simonfuhrmann/mve/archive/{{ mve_commit }}.tar.gz
+    sha256: a1880f243b38ec0b669aa638225e45f300c508e621b1ee0fb3d444a665a512cc
     folder: mve
 
 build:
